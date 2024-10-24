@@ -1,0 +1,73 @@
+﻿@model SistemaTesteSoftware.Models.RegisterViewModel
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-image: url('https://mrwallpaper.com/images/hd/business-growth-r82mri4n6cbnyt5t.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="card" style="width: 100%; max-width: 400px;">
+            <div class="card-body">
+                <h4 class="card-title text-center mt-2" id="registration-title">Criação de conta de usuário</h4>
+                <hr />
+
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <div class="alert alert-danger" role="alert" id="error-message">
+                        @ViewBag.ErrorMessage
+                    </div>
+                }
+
+                <form action="/Account/Register" method="post">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Name, new { @class = "control-label", @id = "name-label" })
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @id = "name-input" })
+                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger", @id = "name-validation" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "control-label", @id = "email-label" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @id = "email-input" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger", @id = "email-validation" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "control-label", @id = "password-label" })
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "password-input" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger", @id = "password-validation" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label", @id = "confirm-password-label" })
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @id = "confirm-password-input" })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger", @id = "confirm-password-validation" })
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-block" id="register-button">Cadastrar</button>
+                    </div>
+                </form>
+
+                <div class="text-center mt-3">
+                    <a href="/Account/Login" id="login-link">Já tem uma conta? Faça login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.0/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

@@ -1,5 +1,124 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model SistemaTesteSoftware.Models.UserViewModel
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel de Controle - Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .dashboard-card {
+            transition: transform 0.3s;
+        }
+
+            .dashboard-card:hover {
+                transform: scale(1.05);
+            }
+
+        /* Estilo para o menu lateral */
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 56px; /* Ajustar para a altura do cabeçalho */
+            left: 0;
+            width: 250px;
+            background-color: #343a40;
+            color: white;
+            padding-top: 20px;
+        }
+
+            .sidebar a {
+                color: white;
+                text-decoration: none;
+            }
+
+                .sidebar a:hover {
+                    text-decoration: underline;
+                }
+
+        .content {
+            margin-left: 260px; /* Espaço para o menu lateral */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header style="border-bottom: 1px solid #ccc; background-color: #fff;" class="d-flex justify-content-between align-items-center p-3 fixed-top">
+        <h4>Bem-vindo, @Model.Username</h4>
+        <a href="/Account/Login" class="btn btn-sm btn-outline-danger">Sair do sistema</a>
+    </header>
+
+    <div class="sidebar" style="padding: 20px;">
+        <h5>Menu</h5>
+        <ul class="list-unstyled">
+            <li><a href="/Home/Index">Dashboard</a></li>
+            <li><a href="/Users">Usuários</a></li>
+            <li><a href="/Sales">Vendas</a></li>
+            <li><a href="/Settings">Configurações</a></li>
+            <li><a href="/Reports">Relatórios</a></li>
+        </ul>
+    </div>
+    <br/>
+    <div class="content">
+        <hr />
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-users fa-3x"></i>
+                        <h5 class="card-title">Usuários</h5>
+                        <p class="card-text">Total de usuários registrados: <strong>@Model.TotalUsers</strong></p>
+                        <a href="/Users" class="btn btn-primary">Gerenciar Usuários</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-chart-line fa-3x"></i>
+                        <h5 class="card-title">Vendas</h5>
+                        <p class="card-text">Total de vendas este mês: <strong>R$ @Model.TotalSales</strong></p>
+                        <a href="/Sales" class="btn btn-primary">Ver Vendas</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-cogs fa-3x"></i>
+                        <h5 class="card-title">Configurações</h5>
+                        <p class="card-text">Gerencie as configurações do sistema.</p>
+                        <a href="/Settings" class="btn btn-primary">Ir para Configurações</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h4>Atividades Recentes</h4>
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">Novo usuário cadastrado: <strong>Maria Silva</strong></li>
+                            <li class="list-group-item">Venda realizada: <strong>R$ 150</strong> - <em>Produto X</em></li>
+                            <li class="list-group-item">Usuário <strong>João Pereira</strong> alterou suas informações.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.5.2/bootstrap.bundle.min.js"></script>
+</body>
+</html>

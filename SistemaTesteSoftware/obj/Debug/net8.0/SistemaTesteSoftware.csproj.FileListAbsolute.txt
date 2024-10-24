@@ -26,3 +26,4 @@ C:\Testes\SistemaTesteSoftware\SistemaTesteSoftware\obj\Debug\net8.0\refint\Sist
 C:\Testes\SistemaTesteSoftware\SistemaTesteSoftware\obj\Debug\net8.0\SistemaTesteSoftware.pdb
 C:\Testes\SistemaTesteSoftware\SistemaTesteSoftware\obj\Debug\net8.0\SistemaTesteSoftware.genruntimeconfig.cache
 C:\Testes\SistemaTesteSoftware\SistemaTesteSoftware\obj\Debug\net8.0\ref\SistemaTesteSoftware.dll
+C:\Testes\SistemaTesteSoftware\SistemaTesteSoftware\obj\Debug\net8.0\SistemaTesteSoftware.sourcelink.json

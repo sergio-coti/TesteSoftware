@@ -12,8 +12,9 @@ namespace SistemaTesteSoftware.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "A senha é obrigatória.")]
-        [StringLength(100, ErrorMessage = "A {0} deve ter no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "A senha deve ter no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
+        [StrongPassword(ErrorMessage = "A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "A confirmação de senha é obrigatória.")]
